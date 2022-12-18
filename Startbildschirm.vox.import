@@ -1,0 +1,13 @@
+[remap]
+
+importer="MagicaVoxel-Importer"
+type="Mesh"
+path="res://.import/Startbildschirm.vox-4ebe412fff94a70cfb9ce34ec322e773.mesh"
+
+[deps]
+
+source_file="res://Startbildschirm.vox"
+dest_files=[ "res://.import/Startbildschirm.vox-4ebe412fff94a70cfb9ce34ec322e773.mesh" ]
+
+[params]
+

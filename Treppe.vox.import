@@ -1,0 +1,13 @@
+[remap]
+
+importer="MagicaVoxel-Importer"
+type="Mesh"
+path="res://.import/Treppe.vox-f6e13d5846cd9695039cab812fba67db.mesh"
+
+[deps]
+
+source_file="res://Treppe.vox"
+dest_files=[ "res://.import/Treppe.vox-f6e13d5846cd9695039cab812fba67db.mesh" ]
+
+[params]
+

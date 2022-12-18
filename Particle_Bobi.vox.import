@@ -1,0 +1,13 @@
+[remap]
+
+importer="MagicaVoxel-Importer"
+type="Mesh"
+path="res://.import/Particle_Bobi.vox-d57ee5b2fb5a6dc1e3fbcd8847b30c98.mesh"
+
+[deps]
+
+source_file="res://Particle_Bobi.vox"
+dest_files=[ "res://.import/Particle_Bobi.vox-d57ee5b2fb5a6dc1e3fbcd8847b30c98.mesh" ]
+
+[params]
+

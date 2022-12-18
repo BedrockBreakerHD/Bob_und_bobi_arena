@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Startbildschirm.vox" type="ArrayMesh" id=1]
+[ext_resource path="res://Menü.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.216367, 0.072578, 0.0322518 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.501961, 0.411765, 0.345098, 1 )
+
+[node name="Menü" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0812681, 0.15311, -0.0840498 )
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.87165, 3.24715e-09, -0.490128, -0.0321071, 0.997852, -0.0570998, 0.489075, 0.0655076, 0.869778, -0.415585, 0.288368, 0.532159 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 1 )
+light_energy = 0.722
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Startbildschirm" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.0167984, 0, 0, 0, 0.0167984, 0, 0, 0, 0.0167984, 0, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215741, 0 )
+shape = SubResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 7.71953
+height = 0.002
+depth = 6.92904
+material = SubResource( 1 )
+
+[connection signal="mouse_entered" from="StaticBody" to="." method="_on_StaticBody_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody" to="." method="_on_StaticBody_mouse_exited"]

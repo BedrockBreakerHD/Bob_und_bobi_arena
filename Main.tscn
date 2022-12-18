@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player 1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://platform.vox" type="ArrayMesh" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Treppe.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Platform_2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fallzone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://high_env.tres" type="Environment" id=8]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.62081, 3.13058, 0.864048 )
+
+[node name="Main" type="Spatial"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.5769, 0.332, 0 )
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.000519314, -0.00258027, 0.999997, 0.00572519, 0.99998, 0.00257726, -0.999983, 0.00572383, 0.000534077, 17.4833, 5.25991, -6.14209 )
+current = true
+
+[node name="Player 1" parent="." groups=["P1"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.373011, 2.85792, 0.250772 )
+
+[node name="Player 2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06414e-07, 6.0919, -16.1609 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource( 8 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Environment"]
+transform = Transform( -0.123743, -0.320034, 0.93929, -0.0418005, 0.947406, 0.317293, -0.991434, 1.76825e-08, -0.130613, 8.74922, 6.18456, 0 )
+shadow_enabled = true
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="Terrain"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/StaticBody"]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 10, 1.50362e-08, -1.03881, 0.343987 )
+shape = SubResource( 1 )
+
+[node name="platform" type="MeshInstance" parent="Terrain/StaticBody"]
+transform = Transform( -1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, -2.88082, 0.365 )
+mesh = ExtResource( 3 )
+
+[node name="Treppe" parent="Terrain" instance=ExtResource( 5 )]
+transform = Transform( -4.41138e-08, 0, 1.36532, 0, 0.807583, 0, -1.00921, 0, -5.96802e-08, -0.017225, 0.483658, -5.94422 )
+
+[node name="StaticBody3" type="StaticBody" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26933e-07, 0, -16.6303 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/StaticBody3"]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 10, 1.50362e-08, -1.03881, 0.343987 )
+shape = SubResource( 1 )
+
+[node name="platform" type="MeshInstance" parent="Terrain/StaticBody3"]
+transform = Transform( -1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, -2.88082, 0.365 )
+mesh = ExtResource( 3 )
+
+[node name="StaticBody2" type="StaticBody" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26734e-07, 2.73273, -16.6257 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/StaticBody2"]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 10, 1.50362e-08, -1.03881, 0.343987 )
+shape = SubResource( 1 )
+
+[node name="platform" type="MeshInstance" parent="Terrain/StaticBody2"]
+transform = Transform( -1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, -2.88082, 0.365 )
+mesh = ExtResource( 3 )
+
+[node name="Platform_2" parent="Terrain" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29023e-08, 6.42071, 0.752803 )
+
+[node name="Platform_3" parent="Terrain" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.94099e-07, 8.56241, -22.7422 )
+
+[node name="Platform_4" parent="Terrain" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5138e-07, 9.47885, -5.75082 )
+
+[node name="Treppe2" parent="Terrain" instance=ExtResource( 5 )]
+transform = Transform( -4.41138e-08, 0, -1.36532, 0, 0.807583, 0, 1.00921, 0, -5.96802e-08, -0.0172244, 0.555635, 7.33499 )
+
+[node name="Platform_5" parent="Terrain" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0381018, 2.62281, 12.2884 )
+
+[node name="Fallzone" parent="Terrain" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2984, -22.0678, -3.72409 )
+
+[node name="UI" type="Spatial" parent="."]
+
+[node name="Score_P2" type="Label3D" parent="UI"]
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 1.66929, 11.8496, -21.3351 )
+modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
+
+[node name="Score_P1" type="Label3D" parent="UI"]
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 1.66929, 11.8496, 9.91062 )
+
+[connection signal="Hit" from="Player 1" to="Player 2" method="_on_Player_1_Hit"]
+[connection signal="Stomp" from="Player 1" to="Player 2" method="_on_Player_1_Stomp"]
+[connection signal="Hit" from="Player 2" to="Player 1" method="_on_Player_2_Hit"]
+[connection signal="Stomp" from="Player 2" to="Player 1" method="_on_Player_2_Stomp"]
+[connection signal="body_entered" from="Terrain/Fallzone" to="." method="_on_Fallzone_body_entered"]
+[connection signal="body_entered" from="Terrain/Fallzone" to="." method="_on_Fallzone_body_entered_2"]

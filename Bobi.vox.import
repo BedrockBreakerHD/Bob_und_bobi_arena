@@ -1,0 +1,13 @@
+[remap]
+
+importer="MagicaVoxel-Importer"
+type="Mesh"
+path="res://.import/Bobi.vox-bf80afcd1beeb5823c65a86b4fe38cb2.mesh"
+
+[deps]
+
+source_file="res://Bobi.vox"
+dest_files=[ "res://.import/Bobi.vox-bf80afcd1beeb5823c65a86b4fe38cb2.mesh" ]
+
+[params]
+
